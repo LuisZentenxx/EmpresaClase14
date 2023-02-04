@@ -1,22 +1,27 @@
+/**
+ * 
+ */
 package com.unab;
 
 import java.util.Scanner;
 
 /**
- * @author Luis Zenteno
- * @version 1.0
+ * @author Luis Zenteno, Barbara Carvajal
+ * @version 1.1
  * 
- * Esta clase utilizara los siguientes parametros para cada metodo:
+ * Esta sub clase heredada de Persona,  utilizara los siguientes parametros para cada metodo:
 	 * @param mensaje se muestra al usuario para solicitar el ingreso del valor que guardará cada atributo.
 	 * @param sc Scanner para la entrada de datos por parte del usuario.
 	 * @return La cadena de caracteres correspondiente al valor ingresado, validado y asignado a cada atributo.
  */
-public class Cliente {
-
+public class Cliente extends Persona{
+	
+	String nombres, apellidos, telefono, afp, sistemaSalud, direccion, comuna, edad;
+	
+	/*Constructor que instanciará la clase en el Main, incluyendo super que llama a la superclase*/
 	public Cliente() {
+		super();
 	}
-
-	private String rut, nombres, apellidos, telefono, afp, sistemaSalud, direccion, comuna, edad;
 
 	@Override
 	public String toString() {
@@ -26,70 +31,20 @@ public class Cliente {
 				+ direccion + "\n* COMUNA --> " + comuna;
 	}
 	
-	
-	/**
-	 * Metodo que valida el formato de un input, que será utilizado para validar Nombres, Apellidos y otros atributos con las mismas caracteristicas.
-	 */
-	public String validarLetras(String mensaje, Scanner sc) {
-
-		boolean condicion = true;
-		String entrada = "";
-
-		while (condicion) {
-
-			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
-
-			if (entrada.matches("[a-zA-Z\\s]{1,}")) {
-
-				condicion = false;
-			} else {
-
-				System.out.println("Dato ingresado no valido, intentelo nuevamente");
-			}
-		}
-		return entrada;
-	}
-
-
-	/**
-	 * Método que valida el formato del RUN ingresado por el usuario.
-	 */
-	public String validarRun(String mensaje, Scanner sc) {
-
-		boolean condRun = true;
-		String entrada = "";
-
-		while (condRun) {
-
-			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
-
-			if (entrada.matches("\\d{2}.\\d{3}.\\d{3}")) {
-
-				condRun = false;
-			} else {
-
-				System.out.println("Run ingresado no valido, intentelo nuevamente");
-			}
-		}
-		return entrada;
-	}
-
 	/**
 	 *Metodo que valida el formato del número de telefono, correspondiente a 8 digitos.
 	 */
 	public String validarTelefono(String mensaje, Scanner sc) {
 
 		boolean condTel = true;
-		String entrada = "";
+		String input = "";
 
 		while (condTel) {
 
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 
-			if (entrada.matches("[0-9]{8}")) {
+			if (input.matches("[0-9]{8}")) {
 
 				condTel = false;
 			} else {
@@ -97,7 +52,7 @@ public class Cliente {
 				System.out.println("Número de telefono no valido, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 
 	/**
@@ -106,16 +61,16 @@ public class Cliente {
 	public String validarSalud(String mensaje, Scanner sc) {
 
 		boolean condSalud = true;
-		String entrada = "fonasa";
+		String input = "fonasa";
 
 		while (condSalud) {
 
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine().toLowerCase();
+			input = sc.nextLine().toLowerCase();
 
-			if (entrada.matches("[a-z]+")) {
+			if (input.matches("[a-z]+")) {
 
-				if (entrada.equals("fonasa") || entrada.equals("isapre")) {
+				if (input.equals("fonasa") || input.equals("isapre")) {
 					condSalud = false;
 				} else {
 					System.out.println("Sistema de salud no existente, intentalo nuevamente");
@@ -125,7 +80,7 @@ public class Cliente {
 				System.out.println("Dato ingresado no valido, intentalo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 	
 	/**
@@ -134,16 +89,16 @@ public class Cliente {
 	public String validarEdad(String mensaje, Scanner sc) {
 
 		boolean condEdad = true;
-		String entrada = "";
+		String input = "";
 
 		while (condEdad) {
 
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 
-			if (entrada.matches("[0-9]{1,2}")) {
+			if (input.matches("[0-9]{1,2}")) {
 
-				if (!entrada.equals("0")) {
+				if (!input.equals("0")) {
 
 					condEdad = false;
 				} else {
@@ -155,7 +110,7 @@ public class Cliente {
 			}
 
 		}
-		return entrada;
+		return input;
 	}
 	
 	/**
@@ -167,14 +122,14 @@ public class Cliente {
 	public String validarDireccion(String mensaje, Scanner sc) {
 
 		boolean condicion2 = true;
-		String entrada = "";
+		String input = "";
 
 		while (condicion2) {
 
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 
-			if (entrada.matches("[a-z A-Z 0-9]{5,50}")) {
+			if (input.matches("[a-z A-Z 0-9]{2,50}")) {
 
 				condicion2 = false;
 			} else {
@@ -182,22 +137,9 @@ public class Cliente {
 				System.out.println("Direccion ingresada no valida, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 
-	/**
-	 * @return the rut
-	 */
-	public String getRut() {
-		return rut;
-	}
-
-	/**
-	 * @param rut the rut to set
-	 */
-	public void setRut(String rut) {
-		this.rut = rut;
-	}
 
 	/**
 	 * @return the nombres
@@ -310,5 +252,8 @@ public class Cliente {
 	public void setEdad(String edad) {
 		this.edad = edad;
 	}
+	
+	
+
 
 }

@@ -1,26 +1,33 @@
+/**
+ * 
+ */
 package com.unab;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Scanner;
+
 /**
- * @author Luis Zenteno
- * @version 1.0
+ * @author Luis Zenteno, Barbara Carvajal
+ * @version 1.1
  * 
- * Esta clase utilizara los siguientes parametros para cada metodo:
+ * Esta sub clase heredada de Persona, utilizara los siguientes parametros para cada metodo:
 	 * @param mensaje se muestra al usuario para solicitar el ingreso del valor que guardará cada atributo.
 	 * @param sc Scanner para la entrada de datos por parte del usuario.
 	 * @return La cadena de caracteres correspondiente al valor ingresado, validado y asignado a cada atributo.
  */
-public class Capacitacion {
-
-	private String id, rutCliente, día, hora, lugar, duración, asistentes;
+public class Capacitacion extends Persona{
 	
-	/*Constructor vacio. Crea una nueva instancia de Capacitación*/
-	public Capacitacion() {
+	/*Atributos propios de la clase*/
+	String id, dia, hora, lugar, duracion, asistentes;
+	
+	/*Constructor que instancia la clase, incluyendo "super" que llamará a la superclase*/
+	Capacitacion(){
+		super();
 	}
-
+	
+	
 	/**
 	Método toString sobreescrito para la clase Capacitacion.
 	Devuelve una representación en forma de cadena de los valores de los atributos de un objeto de la clase Capacitacion.
@@ -28,34 +35,10 @@ public class Capacitacion {
 	*/
 	@Override
 	public String toString() {
-		return "\nDATOS CAPACITACIÓN" + "\n\\\\\\\\\\\\\\\\" + "\n* ID CLIENTE --> " + "#" +  id + "\n* RUT CLIENTE --> " + rutCliente + "\n* DÍA --> " + día + "\n* HORA --> " + hora + "\n* LUGAR --> "
-				+ lugar + "\n* DURACIÓN --> " + duración + " Horas" + "\n* CANTIDAD ASISTENTES --> " + asistentes;
+		return "\nDATOS CAPACITACIÓN" + "\n\\\\\\\\\\\\\\\\" + "\n* ID CLIENTE --> " + "#" +  id + "\n* RUT CLIENTE --> " + rut + "\n* DÍA --> " + dia + "\n* HORA --> " + hora + "\n* LUGAR --> "
+				+ lugar + "\n* DURACIÓN --> " + duracion + " Horas" + "\n* CANTIDAD ASISTENTES --> " + asistentes;
 	}
 
-	
-	/**
-	 * Método que valida el formato del RUN ingresado por el usuario.
-	*/
-	public String validarRun(String mensaje, Scanner sc) {
-
-		boolean condRun = true;
-		String entrada = "";
-
-		while (condRun) {
-
-			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
-
-			if (entrada.matches("\\d{2}.\\d{3}.\\d{3}")) {
-
-				condRun = false;
-			} else {
-
-				System.out.println("Run ingresado no valido, intentelo nuevamente");
-			}
-		}
-		return entrada;
-	}
 	
 	/** 
 	 * Metodo que valida el formato de un evento ingresado por el usuario.
@@ -63,14 +46,14 @@ public class Capacitacion {
 	public String validarLugar(String mensaje, Scanner sc) {
 
 		boolean condicion2 = true;
-		String entrada = "";
+		String input = "";
 
 		while (condicion2) {
 
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 
-			if (entrada.matches("[a-z A-Z 0-9]{5,50}")) {
+			if (input.matches("[a-z A-Z 0-9]{2,50}")) {
 
 				condicion2 = false;
 			} else {
@@ -78,7 +61,7 @@ public class Capacitacion {
 				System.out.println("Direccion ingresada no valida, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 
 	/**
@@ -87,14 +70,14 @@ public class Capacitacion {
 	public String validarId(String mensaje, Scanner sc) {
 
 		boolean condicionId = true;
-		String entrada = "";
+		String input = "";
 
 		while (condicionId) {
 
 			System.out.print(mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 
-			if (entrada.matches("[a-zA-Z 0-9]{5,8}")) {
+			if (input.matches("[a-zA-Z 0-9]{5,8}")) {
 
 				condicionId = false;
 			} else {
@@ -102,7 +85,7 @@ public class Capacitacion {
 				System.out.println("ID ingresado no valido, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 
 	/**
@@ -111,18 +94,18 @@ public class Capacitacion {
 	public String validarDia(String mensaje, Scanner sc) {
 
 		boolean condDia = true;
-		String entrada = "";
+		String input = "";
 
 		while (condDia) {
 
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input= sc.nextLine();
 
-			if (entrada.matches("[a-zA-Z]{1,}")) {
+			if (input.matches("[a-zA-Z]{1,}")) {
 
-				if (entrada.equals("lunes") || entrada.equals("martes") || entrada.equals("miercoles")
-						|| entrada.equals("jueves") || entrada.equals("viernes") || entrada.equals("sabado")
-						|| entrada.equals("domingo")) {
+				if (input.equals("lunes") || input.equals("martes") || input.equals("miercoles")
+						|| input.equals("jueves") || input.equals("viernes") || input.equals("sabado")
+						|| input.equals("domingo")) {
 					
 					condDia = false;
 					
@@ -133,7 +116,7 @@ public class Capacitacion {
 				System.out.println("Dato ingresado no valido, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 
 
@@ -153,19 +136,19 @@ public class Capacitacion {
 	public String validarHora(String mensaje, Scanner sc) {
 		
 		boolean condHora = true;
-		String entrada = "";
+		String input = "";
 		
 		while (condHora) {
 			
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 			
 			SimpleDateFormat sdf = new SimpleDateFormat("HH:mm");
 			sdf.setLenient(false); 
 
 			try {
 				
-			  Date hora = sdf.parse(entrada);
+			  Date hora = sdf.parse(input);
 			  
 			  condHora = false;
 			} 
@@ -174,7 +157,7 @@ public class Capacitacion {
 			}
 		}
 		
-		return entrada;
+		return input;
 	}
 	
 	
@@ -184,19 +167,19 @@ public class Capacitacion {
 	public String validarDuracion(String mensaje, Scanner sc) {
 		
 		boolean condicion3 = true;
-		String entrada = "";
+		String input = "";
 		
 		while (condicion3) {
 			
 			System.out.print("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 			
 			/*
 			 * Esta sección utilizada para la validacion de la duración de un evento, valida que lo ingresado por el usuario sean solo números .
 			 * Si la duración del evento está en un rango de 1 a 5, el ciclo continuará.
 			 * Si lo ingresado por el usuario no es un dato numerico ni esta dentro del rango establecido, el ciclo volverá a repetirse para pedir los datos nuevamente.
 			*/
-			if (entrada.matches("[1-5]{1}")) {
+			if (input.matches("[1-5]{1}")) {
 				
 				condicion3 = false;
 			}
@@ -205,7 +188,7 @@ public class Capacitacion {
 				System.out.println("Cantidad de horas no valida, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 	
 	/**
@@ -214,16 +197,16 @@ public class Capacitacion {
 	public String validarAsistentes(String mensaje, Scanner sc) {
 		
 		boolean condAsist = true;
-		String entrada = "";
+		String input = "";
 		
 		while (condAsist) {
 			
 			System.out.println("\n" + mensaje);
-			entrada = sc.nextLine();
+			input = sc.nextLine();
 			
-			if (entrada.matches("[0-9]{1,3}")) {
+			if (input.matches("[0-9]{1,3}")) {
 				
-				if (!entrada.equals("0")) {
+				if (!input.equals("0")) {
 					
 					condAsist = false;
 				}else {
@@ -236,7 +219,7 @@ public class Capacitacion {
 				System.out.println("Cantidad de asistenes no validos, intentelo nuevamente");
 			}
 		}
-		return entrada;
+		return input;
 	}
 	
 	/**
@@ -257,28 +240,28 @@ public class Capacitacion {
 	 * @return the rutCliente
 	 */
 	public String getRutCliente() {
-		return "El rut es --> " + rutCliente;
+		return "El rut es --> " + rut;
 	}
 
 	/**
 	 * @param rutCliente the rutCliente to set
 	 */
 	public void setRutCliente(String rutCliente) {
-		this.rutCliente = rutCliente;
+		this.rut = rutCliente;
 	}
 
 	/**
 	 * @return the día
 	 */
 	public String getDía() {
-		return "El día de la capacitación es --> " + día;
+		return "El día de la capacitación es --> " + dia;
 	}
 
 	/**
 	 * @param día the día to set
 	 */
-	public void setDía(String día) {
-		this.día = día;
+	public void setDía(String dia) {
+		this.dia = dia;
 	}
 
 	/**
@@ -313,14 +296,14 @@ public class Capacitacion {
 	 * @return the duración
 	 */
 	public String getDuración() {
-		return "La duración de la capacitación es --> " + duración;
+		return "La duración de la capacitación es --> " + duracion;
 	}
 
 	/**
 	 * @param duración the duración to set
 	 */
-	public void setDuración(String duración) {
-		this.duración = duración;
+	public void setDuración(String duracion) {
+		this.duracion = duracion;
 	}
 
 	/**
@@ -336,5 +319,5 @@ public class Capacitacion {
 	public void setAsistentes(String asistentes) {
 		this.asistentes = asistentes;
 	}
-
+	
 }
