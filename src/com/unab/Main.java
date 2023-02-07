@@ -30,12 +30,11 @@ public class Main {
 		cliente1.setDireccion(cliente1.validarDireccion("Ingresa tu dirección --> ", sc).toLowerCase());
 		cliente1.setComuna(cliente1.validarDireccion("Ingresa tu comuna de residencia --> ", sc).toLowerCase());
 		cliente1.setAfp(cliente1.validarLetras("Ingresa tu AFP --> ", sc).toLowerCase());
-		cliente1.setSistemaSalud(cliente1.validarSalud("Ingresa tu Sistema de Salud (fonasa o isapre) --> ", sc).toLowerCase());
+		cliente1.setSistemaSalud(cliente1.validarSalud("Ingresa tu Sistema de Salud (1. fonasa - 2. isapre) --> ", sc).toLowerCase());
 		
 		System.out.println(cliente1.toString());
 
 		System.out.println("Nombre completo: "+ cliente1.obtenerNombre());
-		System.out.println("Sistema de salud: "+ cliente1.obtenerSistemaSalud());
 	}
 	
 	public static void usuario() {
@@ -49,6 +48,7 @@ public class Main {
 		user1.setNombre(user1.validarLetras("\nIngresa el nombre del usuario --> ", sc).toLowerCase());
 		user1.setRut(user1.validarRut("Ingresa tu rut (99.999.999) --> ", sc));
 		user1.setFechaNac(user1.validarFecha("Ingresa tu fecha de nacimiento (dd-mm-yyyy) --> ", sc));
+		System.out.println(user1.mostrarEdad());
 		
 		// Entrega un detalle de los datos ingresados por el usuario
 		System.out.println(user1.toString());
@@ -83,9 +83,9 @@ public class Main {
 		
 		
 		System.out.println("\n-------------------------------");
-		//cliente();
+		cliente();
 		System.out.println("\n-------------------------------");
-		capacitacion();
+		//capacitacion();
 		System.out.println("\n-------------------------------");
 		//usuario();
 		System.out.println("\n-------------------------------");

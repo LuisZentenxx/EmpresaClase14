@@ -5,9 +5,6 @@ package com.unab;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.time.LocalDate;
-import java.time.Period;
-import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 /**
  * @author Luis Zenteno, Barbara Carvajal
@@ -31,27 +28,19 @@ public class Usuario extends Persona {
 
 		//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
 		// edad del usuario en cuestión
-	
+
 		public String mostrarEdad(){
 
 
+			String fecha =this.getFechaNac();
+			String[] elementos = fecha.split("-");
 
-			int anios = 0;
-			String edadUsuario = "El usuario " + this.nombre + " tiene " + anios;
-			return edadUsuario;
+			int num = Integer.parseInt(elementos[2]);
+			int edad = 2023 - num;
+
+			return "\nEl usuario " + this.nombre + " tiene " + edad + " años";
+
 		}
-/*
- * public static int getAge(String birthdate) {
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-    LocalDate birthdate = LocalDate.parse(birthdate, formatter);
-    LocalDate now = LocalDate.now();
-    Period age = Period.between(birthdate, now);
-    return age.getYears();
-}
- * 
- * 
- */
-
 
 	/**
 	 * Metodo que valida la fecha con el uso de la clase SimpleDateFormat en formato dd-mm-yyyy
@@ -76,13 +65,16 @@ public class Usuario extends Persona {
 	        } catch (ParseException e) {
 	            System.out.println(input + " no es una fecha válida, intentalo nuevamente");
 	        }
+
 		}
 		return input;
 	}
 
 	@Override
 	public String toString() {
-		return "Usuario [nombre=" + nombre + ", fechaNac=" + fechaNac + ", rut=" + rut + "]";
+
+		return "\nDATOS USUARIO" + "\n\\\\\\\\\\\\\\\\" + "\n* NOMBRES --> " + nombre + "\n* RUT  --> " + rut + "\n* FECHA NACIMIENTO --> " + fechaNac;
+
 	}
 
 	/**
@@ -115,6 +107,8 @@ public class Usuario extends Persona {
 	public void setFechaNac(String fechaNac) {
 		this.fechaNac = fechaNac;
 	}
+
+
 	
 	
 }

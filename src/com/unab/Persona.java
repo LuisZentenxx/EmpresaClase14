@@ -28,7 +28,7 @@ public class Persona {
 
 		while (condicion) {
 
-			System.out.println("\n" + mensaje);
+			System.out.print("\n" + mensaje);
 			input = sc.nextLine();
 
 			if (input.matches("[a-z A-Z\\s]+$")) {
@@ -54,7 +54,7 @@ public class Persona {
 
 		while (condRut) {
 
-			System.out.println("\n" + mensaje);
+			System.out.print("\n" + mensaje);
 			input = sc.nextLine();
 
 			if (input.matches("\\d{2}.\\d{3}.\\d{3}")) {

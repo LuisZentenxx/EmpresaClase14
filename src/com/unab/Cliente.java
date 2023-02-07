@@ -27,7 +27,7 @@ public class Cliente extends Persona{
 	public String toString() {
 		return "\nDATOS CLIENTE" + "\n\\\\\\\\\\\\\\\\" + "\n* NOMBRES --> " + nombres + "\n* APELLIDOS --> "
 				+ apellidos + "\n* RUT  --> " + rut + "\n* EDAD --> " + edad + " años" + "\n* TELÉFONO --> " + " +56 9 "
-				+ telefono + "\n* AFP -->  " + afp + "\n* SISTEMA SALUD --> " + sistemaSalud + "\n* DIRECCIÓN --> "
+				+ telefono + "\n* AFP -->  " + afp + "\n* SISTEMA SALUD --> " + this.obtenerSistemaSalud() + "\n* DIRECCIÓN --> "
 				+ direccion + "\n* COMUNA --> " + comuna;
 	}
 
