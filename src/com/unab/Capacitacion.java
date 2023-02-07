@@ -39,7 +39,27 @@ public class Capacitacion extends Persona{
 				+ lugar + "\n* DURACIÓN --> " + duracion + " Horas" + "\n* CANTIDAD ASISTENTES --> " + asistentes;
 	}
 
+	// transformar a minutos 
+
+	public String horasAminutos(){
+
+		int horas = Integer.parseInt(this.getDuración());
+		int minutos = horas * 60;
 	
+		String min = Integer.toString(minutos);
+
+		return min;
+	}
+
+	// mostrarDetalle(): retorna un mensaje con el texto “La capacitación será en A a las B del día
+  // C, y durará D minutos”, en donde A es el lugar, B es la hora, C es el día y D son los minutos.
+
+	public String mostrarDetalle(){
+
+		String detalle = "La capacitación será en "+this.getLugar()+" a las "+this.getHora()+" del día "+ this.getDía()+" y durará "+this.horasAminutos()+" minutos.";
+		return detalle;
+	}
+
 	/** 
 	 * Metodo que valida el formato de un evento ingresado por el usuario.
 	 */
@@ -226,7 +246,7 @@ public class Capacitacion extends Persona{
 	 * @return the id
 	 */
 	public String getId() {
-		return "El ID es --> #" + id;
+		return id;
 	}
 
 	/**
@@ -240,7 +260,7 @@ public class Capacitacion extends Persona{
 	 * @return the rutCliente
 	 */
 	public String getRutCliente() {
-		return "El rut es --> " + rut;
+		return rut;
 	}
 
 	/**
@@ -254,7 +274,7 @@ public class Capacitacion extends Persona{
 	 * @return the día
 	 */
 	public String getDía() {
-		return "El día de la capacitación es --> " + dia;
+		return dia;
 	}
 
 	/**
@@ -268,7 +288,7 @@ public class Capacitacion extends Persona{
 	 * @return the hora
 	 */
 	public String getHora() {
-		return "La hora de la capacitación es --> " + hora;
+		return hora;
 	}
 
 	/**
@@ -282,7 +302,7 @@ public class Capacitacion extends Persona{
 	 * @return the lugar
 	 */
 	public String getLugar() {
-		return "El lugar de la capacitación es --> " + lugar;
+		return lugar;
 	}
 
 	/**
@@ -296,7 +316,7 @@ public class Capacitacion extends Persona{
 	 * @return the duración
 	 */
 	public String getDuración() {
-		return "La duración de la capacitación es --> " + duracion;
+		return duracion;
 	}
 
 	/**
@@ -310,7 +330,7 @@ public class Capacitacion extends Persona{
 	 * @return the asistentes
 	 */
 	public String getAsistentes() {
-		return "La cantidad de asistentes es --> " + asistentes;
+		return asistentes;
 	}
 
 	/**
