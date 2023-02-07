@@ -33,6 +33,9 @@ public class Main {
 		cliente1.setSistemaSalud(cliente1.validarSalud("Ingresa tu Sistema de Salud (fonasa o isapre) --> ", sc).toLowerCase());
 		
 		System.out.println(cliente1.toString());
+
+		System.out.println("Nombre completo: "+ cliente1.obtenerNombre());
+		System.out.println("Sistema de salud: "+ cliente1.obtenerSistemaSalud());
 	}
 	
 	public static void usuario() {
@@ -69,6 +72,7 @@ public class Main {
 		
 		// Entrega un detalle de los datos ingresados por el usuario
 		System.out.println(cap1.toString());
+		System.out.println(cap1.mostrarDetalle());
 
 	}
 	
@@ -76,14 +80,14 @@ public class Main {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		
 		
 		System.out.println("\n-------------------------------");
-		cliente();
+		//cliente();
 		System.out.println("\n-------------------------------");
 		capacitacion();
 		System.out.println("\n-------------------------------");
-		usuario();
+		//usuario();
 		System.out.println("\n-------------------------------");
 
 	}

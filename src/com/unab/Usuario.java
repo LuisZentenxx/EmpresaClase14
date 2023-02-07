@@ -5,6 +5,9 @@ package com.unab;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 /**
  * @author Luis Zenteno, Barbara Carvajal
@@ -25,8 +28,31 @@ public class Usuario extends Persona {
 	public Usuario() {
 		super();
 	}
+
+		//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
+		// edad del usuario en cuestión
 	
-	
+		public String mostrarEdad(){
+
+
+
+			int anios = 0;
+			String edadUsuario = "El usuario " + this.nombre + " tiene " + anios;
+			return edadUsuario;
+		}
+/*
+ * public static int getAge(String birthdate) {
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+    LocalDate birthdate = LocalDate.parse(birthdate, formatter);
+    LocalDate now = LocalDate.now();
+    Period age = Period.between(birthdate, now);
+    return age.getYears();
+}
+ * 
+ * 
+ */
+
+
 	/**
 	 * Metodo que valida la fecha con el uso de la clase SimpleDateFormat en formato dd-mm-yyyy
 	 */

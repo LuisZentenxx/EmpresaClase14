@@ -30,7 +30,32 @@ public class Cliente extends Persona{
 				+ telefono + "\n* AFP -->  " + afp + "\n* SISTEMA SALUD --> " + sistemaSalud + "\n* DIRECCIÓN --> "
 				+ direccion + "\n* COMUNA --> " + comuna;
 	}
+
 	
+
+//- obtenerNombre(): retorna un String con el nombre completo del cliente (nombres +
+//  apellidos)
+	public String obtenerNombre(){
+		String nombreCompleto = this.nombres + " " + this.apellidos;
+		return nombreCompleto;
+	}
+
+	//- obtenerSistemaSalud(): de acuerdo al valor registrado en el objeto, despliega el tipo de
+	//  sistema de salud
+
+public String obtenerSistemaSalud(){
+	String sistema = "";
+	if (this.sistemaSalud.equals("1")){
+		 sistema = "Fonasa";
+	}else if (this.sistemaSalud.equals("2")){
+		sistema = "Isapre";
+	}else{
+		System.out.println("error");
+	}
+	
+	return sistema;
+}
+
 	/**
 	 *Metodo que valida el formato del número de telefono, correspondiente a 8 digitos.
 	 */
@@ -68,9 +93,9 @@ public class Cliente extends Persona{
 			System.out.print("\n" + mensaje);
 			input = sc.nextLine().toLowerCase();
 
-			if (input.matches("[a-z]+")) {
+			if (input.matches("[1-2]+")) {
 
-				if (input.equals("fonasa") || input.equals("isapre")) {
+				if (input.equals("1") || input.equals("2")) {
 					condSalud = false;
 				} else {
 					System.out.println("Sistema de salud no existente, intentalo nuevamente");
