@@ -6,7 +6,7 @@ import java.util.Scanner;
 /**
  * Super clase que será utilizada con herencia y polimorfismo en clases Cliente, Usuario y Capacitacion
  * @author Luis Zenteno, Barbara Carvajal
- *@version 1.1
+ *@version 1.2
  */
 public class Persona {
 	

@@ -10,7 +10,7 @@ import java.util.Scanner;
 
 /**
  * @author Luis Zenteno, Barbara Carvajal, Maria Fernanda
- * @version 1.1
+ * @version 1.2
  * 
  * Esta sub clase heredada de Persona, utilizara los siguientes parametros para cada metodo:
 	 * @param mensaje se muestra al usuario para solicitar el ingreso del valor que guardará cada atributo.
@@ -45,7 +45,7 @@ public class Capacitacion extends Persona{
 	*/
 	@Override
 	public String toString() {
-		return "\nDATOS CAPACITACIÓN" + "\n\\\\\\\\\\\\\\\\" + "\n* ID CLIENTE --> " + "#" +  id + "\n* RUT CLIENTE --> " + rut + "\n* DÍA --> " + dia + "\n* HORA --> " + hora + "\n* LUGAR --> "
+		return "\n* ID CLIENTE --> " + "#" +  id + "\n* RUT CLIENTE --> " + rut + "\n* DÍA --> " + dia + "\n* HORA --> " + hora + "\n* LUGAR --> "
 				+ lugar + "\n* DURACIÓN --> " + duracion + " Horas" + "\n* CANTIDAD ASISTENTES --> " + asistentes;
 	}
 
@@ -231,7 +231,7 @@ public class Capacitacion extends Persona{
 		
 		while (condAsist) {
 			
-			System.out.println("\n" + mensaje);
+			System.out.print("\n" + mensaje);
 			input = sc.nextLine();
 			
 			if (input.matches("[0-9]{1,3}")) {
@@ -262,7 +262,7 @@ public class Capacitacion extends Persona{
 		
 		while (condNum) {
 			
-			System.out.println("\n" + mensaje);
+			System.out.print("\n" + mensaje);
 			entrada = sc.nextLine();
 			
 			if (entrada.matches("[0-9]{3,5}")) {
@@ -400,7 +400,4 @@ public class Capacitacion extends Persona{
 		this.rut = rut;
 	}
 
-	
-	
-	
 }
