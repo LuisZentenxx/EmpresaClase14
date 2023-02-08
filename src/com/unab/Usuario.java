@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 import java.util.Scanner;
 /**
  * @author Luis Zenteno, Barbara Carvajal
- * @version 1.1
+ * @version 1.2
  * 
  * Esta sub clase heredada de Persona utilizara los siguientes parametros para cada metodo:
 	 * @param mensaje se muestra al usuario para solicitar el ingreso del valor que guardará cada atributo.
@@ -26,7 +26,15 @@ public class Usuario extends Persona {
 		super();
 	}
 
-		//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
+	
+		public Usuario(String nombre, String fechaNac, String rut) {
+		
+		this.nombre = nombre;
+		this.fechaNac = fechaNac;
+		this.rut = rut;
+	}
+
+	//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
 		// edad del usuario en cuestión
 
 		public String mostrarEdad(){
@@ -73,7 +81,7 @@ public class Usuario extends Persona {
 	@Override
 	public String toString() {
 
-		return "\nDATOS USUARIO" + "\n\\\\\\\\\\\\\\\\" + "\n* NOMBRES --> " + nombre + "\n* RUT  --> " + rut + "\n* FECHA NACIMIENTO --> " + fechaNac;
+		return "\n* NOMBRES --> " + nombre + "\n* RUT  --> " + rut + "\n* FECHA NACIMIENTO --> " + fechaNac;
 
 	}
 

@@ -9,8 +9,8 @@ import java.util.Date;
 import java.util.Scanner;
 
 /**
- * @author Luis Zenteno, Barbara Carvajal
- * @version 1.1
+ * @author Luis Zenteno, Barbara Carvajal, Maria Fernanda
+ * @version 1.2
  * 
  * Esta sub clase heredada de Persona, utilizara los siguientes parametros para cada metodo:
 	 * @param mensaje se muestra al usuario para solicitar el ingreso del valor que guardará cada atributo.
@@ -20,14 +20,24 @@ import java.util.Scanner;
 public class Capacitacion extends Persona{
 	
 	/*Atributos propios de la clase*/
-	String id, dia, hora, lugar, duracion, asistentes;
+	String id,rut, dia, hora, lugar, duracion, asistentes, numeroInterno;
 	
 	/*Constructor que instancia la clase, incluyendo "super" que llamará a la superclase*/
 	Capacitacion(){
 		super();
 	}
 	
-	
+	public Capacitacion(String id,String rut, String dia, String hora, String lugar, String duracion, String asistentes, String numeroInterno) {
+		this.id = id;
+		this.rut = rut;
+		this.dia = dia;
+		this.hora = hora;
+		this.lugar = lugar;
+		this.duracion = duracion;
+		this.asistentes = asistentes;
+		this.numeroInterno = numeroInterno;
+	}
+
 	/**
 	Método toString sobreescrito para la clase Capacitacion.
 	Devuelve una representación en forma de cadena de los valores de los atributos de un objeto de la clase Capacitacion.
@@ -35,7 +45,7 @@ public class Capacitacion extends Persona{
 	*/
 	@Override
 	public String toString() {
-		return "\nDATOS CAPACITACIÓN" + "\n\\\\\\\\\\\\\\\\" + "\n* ID CLIENTE --> " + "#" +  id + "\n* RUT CLIENTE --> " + rut + "\n* DÍA --> " + dia + "\n* HORA --> " + hora + "\n* LUGAR --> "
+		return "\n* ID CLIENTE --> " + "#" +  id + "\n* RUT CLIENTE --> " + rut + "\n* DÍA --> " + dia + "\n* HORA --> " + hora + "\n* LUGAR --> "
 				+ lugar + "\n* DURACIÓN --> " + duracion + " Horas" + "\n* CANTIDAD ASISTENTES --> " + asistentes;
 	}
 
@@ -221,7 +231,7 @@ public class Capacitacion extends Persona{
 		
 		while (condAsist) {
 			
-			System.out.println("\n" + mensaje);
+			System.out.print("\n" + mensaje);
 			input = sc.nextLine();
 			
 			if (input.matches("[0-9]{1,3}")) {
@@ -241,6 +251,40 @@ public class Capacitacion extends Persona{
 		}
 		return input;
 	}
+
+	/**
+	Metodo que valida que num interno 
+	*/
+	public String validarNumeroInterno(String mensaje, Scanner sc) {
+		
+		boolean condNum = true;
+		String entrada = "";
+		
+		while (condNum) {
+			
+			System.out.print("\n" + mensaje);
+			entrada = sc.nextLine();
+			
+			if (entrada.matches("[0-9]{3,5}")) {
+				
+				if (!entrada.equals("0")) {
+					
+					condNum = false;
+				}else {
+					
+					System.out.println("El código debe ser de mínimo 3 digitos y máximo 5.");
+				}
+			}
+			else {
+				
+				System.out.println("Código ingresado no valido, intentelo nuevamente");
+			}
+		}
+		return entrada;
+	}
+
+
+
 	
 	/**
 	 * @return the id
@@ -339,5 +383,21 @@ public class Capacitacion extends Persona{
 	public void setAsistentes(String asistentes) {
 		this.asistentes = asistentes;
 	}
-	
+
+	public String getNumeroInterno() {
+		return numeroInterno;
+	}
+
+	public void setNumeroInterno(String numeroInterno) {
+		this.numeroInterno = numeroInterno;
+	}
+
+	public String getRut() {
+		return rut;
+	}
+
+	public void setRut(String rut) {
+		this.rut = rut;
+	}
+
 }

@@ -7,7 +7,7 @@ import java.util.Scanner;
 
 /**
  * @author Luis Zenteno, Barbara Carvajal
- * @version 1.1
+ * @version 1.2
  * 
  * Esta sub clase heredada de Persona,  utilizara los siguientes parametros para cada metodo:
 	 * @param mensaje se muestra al usuario para solicitar el ingreso del valor que guardará cada atributo.
@@ -23,11 +23,29 @@ public class Cliente extends Persona{
 		super();
 	}
 
+	
+
+	public Cliente(String nombres, String apellidos,String rut, String telefono, String afp, String sistemaSalud, String direccion,
+			String comuna, String edad) {
+				super();
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.rut = rut;
+		this.telefono = telefono;
+		this.afp = afp;
+		this.sistemaSalud = sistemaSalud;
+		this.direccion = direccion;
+		this.comuna = comuna;
+		this.edad = edad;
+	}
+
+
+
 	@Override
 	public String toString() {
-		return "\nDATOS CLIENTE" + "\n\\\\\\\\\\\\\\\\" + "\n* NOMBRES --> " + nombres + "\n* APELLIDOS --> "
+		return "\n* NOMBRES --> " + nombres + "\n* APELLIDOS --> "
 				+ apellidos + "\n* RUT  --> " + rut + "\n* EDAD --> " + edad + " años" + "\n* TELÉFONO --> " + " +56 9 "
-				+ telefono + "\n* AFP -->  " + afp + "\n* SISTEMA SALUD --> " + this.obtenerSistemaSalud() + "\n* DIRECCIÓN --> "
+				+ telefono + "\n* AFP -->  " + afp + "\n* SISTEMA SALUD --> " + obtenerSistemaSalud() + "\n* DIRECCIÓN --> "
 				+ direccion + "\n* COMUNA --> " + comuna;
 	}
 
@@ -44,13 +62,16 @@ public class Cliente extends Persona{
 	//  sistema de salud
 
 public String obtenerSistemaSalud(){
-	String sistema = "";
+	String sistema = "Fonasa";
+
 	if (this.sistemaSalud.equals("1")){
 		 sistema = "Fonasa";
+
 	}else if (this.sistemaSalud.equals("2")){
 		sistema = "Isapre";
+
 	}else{
-		System.out.println("error");
+		System.out.println("norsts");
 	}
 	
 	return sistema;
