@@ -165,7 +165,6 @@ public String obtenerSistemaSalud(){
 		return input;
 	}
 
-
 	/**
 	 * @return the nombres
 	 */
