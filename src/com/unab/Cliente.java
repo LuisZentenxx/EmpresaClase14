@@ -23,6 +23,22 @@ public class Cliente extends Persona{
 		super();
 	}
 
+	
+
+	public Cliente(String nombres, String apellidos, String telefono, String afp, String sistemaSalud, String direccion,
+			String comuna, String edad) {
+		this.nombres = nombres;
+		this.apellidos = apellidos;
+		this.telefono = telefono;
+		this.afp = afp;
+		this.sistemaSalud = sistemaSalud;
+		this.direccion = direccion;
+		this.comuna = comuna;
+		this.edad = edad;
+	}
+
+
+
 	@Override
 	public String toString() {
 		return "\nDATOS CLIENTE" + "\n\\\\\\\\\\\\\\\\" + "\n* NOMBRES --> " + nombres + "\n* APELLIDOS --> "

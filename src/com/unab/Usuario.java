@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Usuario extends Persona {
 	
-	String nombre, fechaNac;
+	String nombre, fechaNac, run;
 	
 	/**
 	 * Constructor que instancia la clase, incluyendo super que llama a la superclase.
@@ -26,7 +26,15 @@ public class Usuario extends Persona {
 		super();
 	}
 
-		//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
+	
+		public Usuario(String nombre, String fechaNac, String run) {
+		
+		this.nombre = nombre;
+		this.fechaNac = fechaNac;
+		this.run = run;
+	}
+
+	//- mostrarEdad(): retorna un mensaje que diga “El usuario tiene X años”, en donde X es la
 		// edad del usuario en cuestión
 
 		public String mostrarEdad(){
